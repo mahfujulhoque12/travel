@@ -41,12 +41,10 @@ document.addEventListener("DOMContentLoaded", function () {
         updateCarousel();
     }
 
-    // Initialize Gallery Carousel
-    initializeCarousel("gallery-carousel", "gallery-prev-btn", "gallery-next-btn");
-
     // Initialize Client Carousel
     initializeCarousel("client-carousel", "client-prev-btn", "client-next-btn");
 });
+
 
 
 
@@ -76,4 +74,19 @@ document.getElementById("contact-form").addEventListener("submit", function(even
 document.getElementById("send-message-btn").addEventListener("click", function () {
     const contactSection = document.getElementById("contact");
     contactSection.scrollIntoView({ behavior: "smooth" });
+});
+
+
+
+document.getElementById('showMoreBtn').addEventListener('click', function() {
+    // Get all the hidden cards
+    const hiddenCards = document.querySelectorAll('#gallery .card.hidden');
+    
+    // Reveal all hidden cards
+    hiddenCards.forEach(card => {
+        card.classList.remove('hidden');
+    });
+
+    // Hide the 'Show More' button after it is clicked
+    this.classList.add('hidden');
 });
